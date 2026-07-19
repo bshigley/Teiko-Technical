@@ -1,0 +1,11 @@
+# Regenerable database (rebuilt by `make pipeline`)
+cell-count.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
