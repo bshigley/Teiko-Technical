@@ -37,10 +37,11 @@ make dashboard  # start the dashboard
 boxplot and significance table), and Part 4 (baseline breakdowns and the average
 B-cell figure). It reads `cell-count.db`, so run `make pipeline` first.
 
-**Live link:** _<do not forget to update dumbass>_ — to publish a public link, push
-this repo to GitHub and deploy `dashboard.py` on
-[Streamlit Community Cloud](https://share.streamlit.io) (free; point it at
-`dashboard.py`). The app also runs locally / in Codespaces via `make dashboard`.
+**Live link:** https://teiko-technical-nswrpwhhq6arihqu4i5qkp.streamlit.app/
+
+Deployed on [Streamlit Community Cloud](https://share.streamlit.io) from
+`dashboard.py`. The app builds `cell-count.db` from the bundled CSV on first run,
+and also runs locally / in Codespaces via `make dashboard`.
 
 `load_data.py` takes no arguments and creates `cell-count.db` in the repo root.
 `analysis.py` reads from that database and runs every analysis in order.
