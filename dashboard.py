@@ -34,8 +34,15 @@ st.set_page_config(page_title="Loblaw Bio - cell-count dashboard", layout="wide"
 
 @st.cache_resource
 def get_connection():
+    # On a fresh host (e.g. Streamlit Community Cloud) the .db is git-ignored and
+    # absent, so build it from the bundled CSV on first run. Locally it already
+    # exists from `make pipeline` and this is skipped.
     if not os.path.exists(DB_PATH):
-        return None
+        try:
+            import load_data
+            load_data.load()
+        except Exception:
+            return None
     # check_same_thread=False: Streamlit reruns can touch the conn from threads.
     return sqlite3.connect(DB_PATH, check_same_thread=False)
 
